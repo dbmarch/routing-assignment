@@ -1,0 +1,30 @@
+nav ul {
+    background-color:white;
+    display: flex;
+    flex-flow: row;
+    align-items: left;
+    justify-content: start;
+    padding: 5px;
+    border: black 2px solid;
+    font-size: 1.2em;
+    }
+
+nav li {
+    margin: 10px 25px;
+
+}
+
+ul {
+    list-style-type: none;
+}
+
+li a {
+    color: blue;
+    padding: 2px;
+    transition: background-color .25s;
+}
+
+li a:hover {
+    color: #5c07e4;
+    background-color: lightgray;
+}
