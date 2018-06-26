@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from 'react-router-dom';
 
 import Courses from './containers/Courses/Courses';
 import Users from './containers/Users/Users';
@@ -18,9 +23,13 @@ class App extends Component {
         <Navigation />
         <Router>
         <ol style={{textAlign: 'left'}}>
+          <Switch>
           <Route path="/courses" component = {Courses} />
+          <Redirect from='/all-courses' to='/courses' />
           <Route path="/course/:id" component = {Course}/>
           <Route path="/users" component = {Users} />
+          <Route component = {NoMatch}/>
+          </Switch>
           <br />
           <hr style={hrStyle}/>
           <br />
@@ -40,4 +49,11 @@ class App extends Component {
   }
 }
 
+const NoMatch = ({ location }) => (
+  <div>
+    <h3>
+      No match for <code>{location.pathname}</code>
+    </h3>
+  </div>
+);
 export default App;
