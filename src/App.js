@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {
-  BrowserRouter as Router,
   Route,
   Switch,
   Redirect
@@ -21,7 +20,6 @@ class App extends Component {
     return (
       <div className="App">
         <Navigation />
-        <Router>
         <ol style={{textAlign: 'left'}}>
           <Switch>
           <Route path="/courses" component = {Courses} />
@@ -42,7 +40,6 @@ class App extends Component {
           <li>Add a 404 error page and render it for any unknown routes</li>
           <li>Redirect requests to /all-courses to /courses (=> Your "Courses" page)</li>
         </ol>
-        </Router>
       </div>
       
     );
