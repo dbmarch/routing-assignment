@@ -8,7 +8,7 @@ import {
 import Courses from './containers/Courses/Courses';
 import Users from './containers/Users/Users';
 import Navigation from './components/Navigation/Navigation';
-import Course from './containers/Course/Course';
+// import Course from './containers/Course/Course';
 
 class App extends Component {
   
@@ -24,7 +24,7 @@ class App extends Component {
           <Switch>
           <Route path="/courses" component = {Courses} />
           <Redirect from='/all-courses' to='/courses' />
-          <Route path="/course/:id" component = {Course}/>
+          {/* <Route path="/course/:id" component = {Course}/> */}
           <Route path="/users" component = {Users} />
           <Route component = {NoMatch}/>
           </Switch>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import {Route, Link} from 'react-router-dom';
+import Course from '../Course/Course';
 
 import './Courses.css';
 
@@ -10,7 +11,7 @@ class Courses extends Component {
             { id: 2, title: 'Vue - The Complete Guide' },
             { id: 3, title: 'PWA - The Complete Guide' }
         ]
-    }
+    };
 
 
     render () {
@@ -21,8 +22,9 @@ class Courses extends Component {
                         return <article 
                                     className="Course" 
                                     key={course.id}>
-                                        <Link to = {{pathname: `/course/${course.id}?title=${course.title}`,
-                                         state: {title: course.title} }}>
+                                        <Link to = {{
+                                            pathname: `${this.props.match.url}/${course.id}`,
+                                            search: '?title='+ course.title }}>
                                         {course.title}
                                         </Link>
                                     <footer>
@@ -31,10 +33,11 @@ class Courses extends Component {
                                     </article>;
                     } )
                 }
-            </section>;
+            </section> 
 
         return ( <div> <h1>Amazing Udemy Courses</h1>
                         {courseList} 
+                        <Route path={this.props.match.url + '/:id'} component = {Course}/>;
                 </div>  );
     }
 }
