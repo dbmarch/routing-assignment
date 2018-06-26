@@ -14,22 +14,24 @@ class Courses extends Component {
 
 
     render () {
-        let courseList =    <section className="Courses">
-                                {
-                                    this.state.courses.map( course => {
-                                        return <article 
-                                                    className="Course" 
-                                                    key={course.id}>
-                                                        <Link to = {`/course/${course.id}`}>
-                                                        {course.title}
-                                                        </Link>
-                                                    <footer>
-                                                        <p>Course Id: {course.id}</p>
-                                                    </footer>
-                                                    </article>;
-                                    } )
-                                }
-                            </section>;
+        let courseList =    
+            <section className="Courses">
+                {
+                    this.state.courses.map( course => {
+                        return <article 
+                                    className="Course" 
+                                    key={course.id}>
+                                        <Link to = {{pathname: `/course/${course.id}?title=${course.title}`,
+                                         state: {title: course.title} }}>
+                                        {course.title}
+                                        </Link>
+                                    <footer>
+                                        <p>Course Id: {course.id}</p>
+                                    </footer>
+                                    </article>;
+                    } )
+                }
+            </section>;
 
         return ( <div> <h1>Amazing Udemy Courses</h1>
                         {courseList} 
